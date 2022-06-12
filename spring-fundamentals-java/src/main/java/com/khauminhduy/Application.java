@@ -1,12 +1,16 @@
 package com.khauminhduy;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.khauminhduy.config.AppConfig;
 import com.khauminhduy.service.SpeakerService;
-import com.khauminhduy.service.SpeakerServiceImpl;
 
 public class Application {
 
 	public static void main(String[] args) {
-		SpeakerService speakerService = new SpeakerServiceImpl();
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+		SpeakerService speakerService = applicationContext.getBean("speakerService", SpeakerService.class);
 		speakerService.findAll().forEach(System.out::println);
 	}
 
