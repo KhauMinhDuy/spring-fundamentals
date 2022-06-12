@@ -1,26 +1,23 @@
 package com.khauminhduy.config;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.khauminhduy.repository.HibernateSpeakerRepositoryImp;
-import com.khauminhduy.repository.SpeakerRepository;
-import com.khauminhduy.service.SpeakerService;
-import com.khauminhduy.service.SpeakerServiceImpl;
-
 @Configuration
+@ComponentScan(basePackages = {"com.khauminhduy"})
 public class AppConfig {
 
-	@Bean(name = "speakerService")
-	public SpeakerService getSpeakerService() {
-		SpeakerServiceImpl speakerService = new SpeakerServiceImpl(getSpeakerRepository());
-//		speakerService.setSpeakerRepository(getSpeakerRepository());
-		return speakerService;
-	}
-
-	@Bean
-	public SpeakerRepository getSpeakerRepository() {
-		return new HibernateSpeakerRepositoryImp();
-	}
+//	@Bean(name = "speakerService")
+//	@Scope(value = BeanDefinition.SCOPE_PROTOTYPE)
+//	public SpeakerService getSpeakerService() {
+//		SpeakerServiceImpl speakerService = new SpeakerServiceImpl(getSpeakerRepository());
+////		speakerService.setSpeakerRepository(getSpeakerRepository());
+//		return speakerService;
+//	}
+//
+//	@Bean
+//	public SpeakerRepository getSpeakerRepository() {
+//		return new HibernateSpeakerRepositoryImp();
+//	}
 
 }
