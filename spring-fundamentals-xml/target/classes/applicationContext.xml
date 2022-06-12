@@ -5,8 +5,16 @@
 
 	<bean name="speakerRepository" class="com.khauminhduy.repository.HibernateSpeakerRepositoryImp" />
 
-	<bean name="speakerService" class="com.khauminhduy.service.SpeakerServiceImpl">
+	<!-- <bean name="speakerService" class="com.khauminhduy.service.SpeakerServiceImpl">
 		<property name="speakerRepository" ref="speakerRepository" />
+	</bean> -->
+	
+	<!-- <bean name="speakerService" class="com.khauminhduy.service.SpeakerServiceImpl">
+		<constructor-arg name="speakerRepository" ref="speakerRepository" />
+	</bean> -->
+	
+	<bean name="speakerService" class="com.khauminhduy.service.SpeakerServiceImpl" autowire="byType">
+		<!-- <constructor-arg name="speakerRepository" ref="speakerRepository" /> -->
 	</bean>
 	
 </beans>

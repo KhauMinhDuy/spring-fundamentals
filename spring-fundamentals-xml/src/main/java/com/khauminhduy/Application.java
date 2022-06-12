@@ -4,7 +4,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.khauminhduy.service.SpeakerService;
-import com.khauminhduy.service.SpeakerServiceImpl;
 
 public class Application {
 
