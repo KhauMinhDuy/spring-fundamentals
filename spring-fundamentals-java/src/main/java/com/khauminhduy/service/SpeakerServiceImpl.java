@@ -2,6 +2,8 @@ package com.khauminhduy.service;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Service(value = "speakerService")
+//@Profile("dev")
 public class SpeakerServiceImpl implements SpeakerService {
 
 	@Autowired
@@ -24,6 +27,11 @@ public class SpeakerServiceImpl implements SpeakerService {
 	@Override
 	public List<Speaker> findAll() {
 		return speakerRepository.findAll();
+	}
+	
+	@PostConstruct
+	private void initialize() {
+		System.out.println("We're called after the constructors");
 	}
 
 }
